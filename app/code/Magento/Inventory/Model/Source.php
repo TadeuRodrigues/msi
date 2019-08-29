@@ -19,6 +19,12 @@ use Magento\InventoryApi\Api\Data\SourceInterface;
  */
 class Source extends AbstractExtensibleModel implements SourceInterface
 {
+    const SOURCE_TYPE_REGULAR = 1;
+
+    const SOURCE_TYPE_DROP_SHIPPER = 4;
+
+    const SOURCE_TYPE_VIRTUAL = 5;
+
     /**
      * @inheritdoc
      */
@@ -57,6 +63,22 @@ class Source extends AbstractExtensibleModel implements SourceInterface
     public function setName(?string $name): void
     {
         $this->setData(self::NAME, $name);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getTypeId(): ?string
+    {
+        return $this->getData(self::TYPE_ID);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function setTypeId(?string $typeId): void
+    {
+        $this->setData(self::TYPE_ID, $typeId);
     }
 
     /**

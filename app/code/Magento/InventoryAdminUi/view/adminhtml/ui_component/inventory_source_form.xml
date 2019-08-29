@@ -72,6 +72,22 @@
                 <label translate="true">Name</label>
             </settings>
         </field>
+        <field name="type_id" formElement="select" sortOrder="30">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Type</label>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Magento\InventoryAdminUi\Model\Config\Source\Type"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
         <field name="enabled" formElement="checkbox" sortOrder="30">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -168,9 +184,6 @@
         </field>
         <field name="fax" formElement="input" sortOrder="40">
             <settings>
-                <validation>
-                    <rule name="validate-fax" xsi:type="boolean">true</rule>
-                </validation>
                 <dataType>text</dataType>
                 <label translate="true">Fax</label>
             </settings>
@@ -199,7 +212,9 @@
                 </select>
             </formElements>
         </field>
-        <field name="region_id" formElement="select" sortOrder="20">
+        <field name="region_id"
+               component="Magento_InventoryAdminUi/js/form/element/region"
+               formElement="select" sortOrder="20">
             <settings>
                 <dataType>text</dataType>
                 <label translate="true">State/Province</label>

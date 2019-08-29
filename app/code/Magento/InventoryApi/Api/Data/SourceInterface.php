@@ -21,6 +21,7 @@ interface SourceInterface extends \Magento\Framework\Api\ExtensibleDataInterface
      */
     const SOURCE_CODE = 'source_code';
     const NAME = 'name';
+    const TYPE_ID = 'type_id';
     const CONTACT_NAME = 'contact_name';
     const EMAIL = 'email';
     const ENABLED = 'enabled';
@@ -67,6 +68,21 @@ interface SourceInterface extends \Magento\Framework\Api\ExtensibleDataInterface
      * @return void
      */
     public function setName(?string $name): void;
+
+    /**
+     * Get source type id
+     *
+     * @return string|null
+     */
+    public function getTypeId(): ?string;
+
+    /**
+     * Set source type id
+     *
+     * @param string|null $typeId
+     * @return void
+     */
+    public function setTypeId(?string $typeId): void;
 
     /**
      * Get source email
